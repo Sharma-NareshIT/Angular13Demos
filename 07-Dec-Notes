@@ -1,0 +1,100 @@
+What are the challenges in modern web development?
+- Unified UX
+- Fluid UX
+- Loosely Coupled and Extensible
+- Simplified Deployment
+
+What is solution?
+- Better to build SPA.
+
+How to build SPA?
+- We can use JavaScript and jQuery
+
+What are the issues with JS & JQ?
+- Lot of DOM manipulations
+- Lot of references
+- Lot of coding
+- Heavy
+-  not Easy to  extend
+- JS is a language
+- jQuery is a library
+
+What is solution?
+Better use a framework.
+
+FAQ:What is difference between a library and framework?
+Ans: Library can build application but can't control application flow.
+        Framework can build app and control application flow.
+
+Angular JS  
+---------------
+- It is a framework.
+- Google 
+- Developers started using Angular JS
+- No DOM manipulations
+- Less Coding
+- Less References
+- Decoupled from DOM manipulations
+
+Issues with Angular JS
+- It is not designed for what you are using
+- Hence lot of GAPS.
+- Legacy type 
+- Heavy
+- Slow
+- Angular JS uses JavaScript
+- JS is not strongly typed
+- Will not support OOPS
+- Extensibility Issues
+- Reusability
+- Testing
+- Separation
+- Angular JS version 1x   [1.8]
+
+		 Google  Angular JS Team
+- Build an alternative for Angular.js
+- Google started a new language called "atScript"
+- Microsoft  Anders Hejlberg - C# .NET  - TypeScript
+- TypeScript as language Angular
+- Angular 2.0
+	It uses TypeScript instead of JavaScript
+	Typescript is OOP
+	Introduced Modular Library
+	Light weight Apps
+	10x faster that angular .js
+	Differential Loading [Compatibility Issues]
+	AOT technique 
+- Latest Version of Angular 13.
+
+	Angular 10	- LTS
+	Angular 11	- LTS
+	Angular 12	- Active - LTS
+	Angular 13	- Active
+
+What is Difference between Angular JS and Angular?
+Angular JS - Framework
+Angular -  Developers Platform
+	Language to build
+	Framework to control app flow
+	Framework for testing
+	Tools for deploying
+
+Is Angular advance to Angular JS?
+Yes
+
+Is Angular replacement for Angular.JS
+No. It is just an alternative for Angular JS
+
+Type Script
+
+
+https://github.com/Sharma-NareshIT/Angular13Demos
+
+
+
+
+
+
+
+
+
