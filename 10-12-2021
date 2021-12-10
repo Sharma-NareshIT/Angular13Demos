@@ -1,0 +1,135 @@
+Non-Primitive Types
+
+1. Array
+2. Object
+3. Map
+
+		            Array
+- Arrays are used to reduce overhead and complexity.
+- JavaScript array can store any type of value.
+- JavaScript array size can change dynamically.
+- TypeScript array can be restricted to same type.
+
+Syntax:
+	let  variableName:dataType[] = [ ];
+	let  variableName:dataType[] = new Array();
+
+  	let values:string[] = ["A", "B"];
+	let values:number[] = [10, 20];
+
+	let values:any[]  = ["A", 10, true];     => Tuple
+
+FAQ: What is a Tuple?
+Ans:  It is a collection of various types of values.
+
+           let  values:any[];
+
+FAQ: What is difference between array [ ]   and   Array()?
+Ans:  Array() will not allow Tuple initialization even the data type is any.
+
+
+Syntax:
+	let  values:any[]  = new Array(10, "A");    // A not allowed -string
+	
+	let  values:any[] = new Array();
+	values[0] = 10;
+	values[1] = "A"; 	// valid
+
+          Array [ ] will allow Tuple Initialization and Assignment.
+
+
+- TypeScript array supports Union of Types.
+- If you define union of array types then can't initialize values of various type. You can assign values of various types.
+
+Syntax:
+	let  values:string[] | number[] = [ ];
+	values[0] = 10;
+	values[1] = "A";
+
+- If you want handle functions, objects and arrays in an Array then the data type must be "any" type.
+
+Syntax:
+             let promise:any[] = [function(){}, function(){}, { }, [ ] ];
+
+- Arrays support destruction from ES5+ 
+
+Syntax:
+	let values:any[] = [10, "A", true];
+
+	let [ n, s, b ] = values;
+
+Example:
+
+let values:any[] = ['admin',function(){console.log('Success..')}, function(){console.log('Failure')}];
+
+let [password, success, failure] = values;
+
+if(password=='admin'){
+    success();
+} else {
+    failure();
+}
+
+Array Manipulation is same as JavaScript:
+1. How to Add values into Array?
+	- push()
+	- unshift()
+	- splice()
+2. How to Remove values from Array?
+	- pop()
+	- shift()
+	- splice()
+3. How to extract values from Array?
+	- slice()
+	- find()
+	- filter()
+	- map()
+4. Miscellaneous method
+	- indexOf()
+	- lastIndexOf()
+	- forEach()
+	etc..
+
+		           Object Type
+- Object comprises of properties and functions.
+- Data is stored in properties and functionality in functions.
+- TypeScript uses "any" as data type for objects.
+
+
+Syntax:
+	let  obj: any = { 
+	
+	   'property' :  value,
+
+	   'property' :  function() { }
+	
+	}
+
+Ex: 
+
+let product:any = {
+    'Name': 'Samsung TV',
+    'Price': 56000.55,
+    'Stock': true,
+    'Print': function(){
+        console.log(`Name=${this.Name}\nPrice=${this.Price}\nStock=${this.Stock}`);
+    }
+}
+product.Print();
+
+Ex: Array of Objects
+
+let products:any[] = [
+    {
+        Name: 'TV',
+        Price: 56000.55
+    },
+    {
+        Name: 'Mobile',
+        Price: 23000.44
+    }
+];
+for(var item of products)
+{
+    console.log(`${item.Name} - ${item.Price}`);   
+}
