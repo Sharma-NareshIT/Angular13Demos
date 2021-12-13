@@ -1,0 +1,210 @@
+		            Typescript OOP
+Contracts in OOP:
+- Contract defines rules for a component.
+- Rules are defined by using "Interface".
+- Interface is used to define a contract.
+
+Syntax:
+	interface  Name
+	{
+
+	}
+
+- Contract can contain only rules for data and logic
+- It can't contain data and logic.
+
+	interface  IProduct
+	{
+	      Name:string;
+	      Price:number;
+	      Stock:boolean = true;   // invalid
+	}
+
+- Any object can implement the contract
+
+	let  product:IProduct = {  }
+
+Ex:
+interface IProduct 
+{
+    Name:string;
+    Price:number;
+    Stock:boolean;
+}
+
+let product:IProduct = {
+    Name: "TV",
+    Price: 60000.44,
+    Stock: true
+}
+
+console.log(`Name=${product.Name}\nPrice=${product.Price}\nStock=${product.Stock}`);
+
+
+- Every rule defined in contract is mandatory to implement.
+- You can define optional rules.
+- Optional rules are defined by using null reference character "?".
+
+ Syntax:
+	 Property?:DataType;		optional
+	 Property:DataType;		mandatory
+
+Ex:
+interface IProduct 
+{
+    Name:string;
+    Price:number;
+    Stock:boolean;
+    Vendor?:string;
+}
+
+let product:IProduct = {
+    Name: "TV",
+    Price: 60000.44,
+    Stock: true,
+    Vendor: "Reliance Digital"
+}
+
+if(product.Vendor==undefined){
+    console.log(`Name=${product.Name}\nPrice=${product.Price}\nStock=${product.Stock}`);
+} else {
+    console.log(`Name=${product.Name}\nPrice=${product.Price}\nStock=${product.Stock}\nVendor=${product.Vendor}`);
+}
+
+FAQ: What is difference between Objective and Goal?
+Ans:  Objective is time bound and mandatory.
+         Goal have no time bound and optional.
+
+          Objective   = Mandatory Properties
+          Goal          = Optional Properties
+
+- Contract can contain "readonly" rules.
+- In General every rule can be re-assigned with a new value.
+- If you wan to restrict re-assigning of values, then you can mark the field as "readonly".
+
+Syntax:
+	        readonly  vendor? : string;
+
+- If defined with readonly you can initialize value but can't assign.
+
+Ex:
+interface IProduct 
+{
+    Name:string;
+    Price:number;
+    Stock:boolean;
+    readonly Vendor?:string;
+}
+
+let product:IProduct = {
+    Name: "TV",
+    Price: 60000.44,
+    Stock: true,
+    Vendor: "Reliance Digital"
+}
+product.Name = "Samsung TV";
+product.Vendor = "Bajaj Electronics";       // invalid - vendor is readonly
+
+if(product.Vendor==undefined){
+    console.log(`Name=${product.Name}\nPrice=${product.Price}\nStock=${product.Stock}`);
+} else {
+    console.log(`Name=${product.Name}\nPrice=${product.Price}\nStock=${product.Stock}\nVendor=${product.Vendor}`);
+}
+
+- TypeScript contract can define rules for methods.
+- Method defines a functionality for component.
+- A contract can have only function signature, not declaration and definition.
+
+	          MethodName():dataType;
+
+- If method is not defined to store value then it is configured as "void".
+
+	          MethodName():void;
+
+Ex:
+interface IProduct 
+{
+    Name:string;
+    Price:number;
+    Qty:number;
+    Total():number;
+    Print?():void;
+}
+let product: IProduct = {
+    Name: "Samsung TV",
+    Price: 45000.55,
+    Qty: 2,
+    Total() {
+        return this.Qty * this.Price;
+    },
+    Print() {
+        console.log(`Name=${product.Name}\nPrice=${product.Price}\nQty=${product.Qty}\nTotal=${product.Total()}`);
+    }
+}
+product.Print();
+
+FAQ: Can we define method as "readonly"?
+Ans: Yes.
+
+- A contract can be extended.
+- Without disturbing the existing contract, we can add new rules to the contract.
+- We can extend existing contract.
+
+	interface  IContract1
+	{
+	}
+	interface  IContract2 extends IContract1
+	{
+
+	}
+
+- A contract can extend multiple contracts
+
+	interface  FinalContract extends Contract1, Contract2
+	{
+	}
+
+Ex:
+interface IVendor 
+{
+    VendorName:string;
+    VendorCity:string;
+}
+interface ICategory
+{
+    CategoryId:number;
+    CategoryName:string;
+}
+
+interface IProduct extends IVendor, ICategory
+{
+    Name:string;
+    Price:number;
+    Qty:number;
+    Total():number;
+    Print?():void;
+}
+
+let product: IProduct = {
+    Name: "Samsung TV",
+    Price: 45000.55,
+    Qty: 2,
+    CategoryId: 1,
+    CategoryName: "Electronics",
+    VendorName: "Reliance",
+    VendorCity: "Hyd",
+    Total() {
+        return this.Qty * this.Price;
+    },
+    Print() {
+        console.log(`Name=${product.Name}\nPrice=${product.Price}\nQty=${product.Qty}\nTotal=${product.Total()}\nCategory=${product.CategoryName}\nVendor=${product.VendorName}`);
+    }
+}
+product.Print();
+
+
+
+
+
+
+
