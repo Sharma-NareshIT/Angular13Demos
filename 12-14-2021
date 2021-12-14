@@ -1,0 +1,200 @@
+		Class in TypeScript
+		===============
+- Class is a program template.
+- Template comprises sample data and logic, which you can implement and customize according to your requirements.
+- Class have the beaviour of 
+	a) Model
+	b) Entity
+	c) Blue Print
+- Model => Maps to database
+- Entity => Maps to business requirements
+- Blue Print => Maps to reusable logic
+
+How to define a class?
+-Class can be defined in 2 ways
+	a) Class Declaration
+	b) Class Expression
+
+Declaration:
+	  class  className
+	  {
+	        // class members
+	  }
+
+Expression:
+	let  className = class  {
+	        // class members	
+	}
+
+- Declaration allows the class to load into memory at the time of loading application.
+- Expression allows the class to load only when requested.
+
+Members in Class
+==============
+1. Properties
+2. Accessors
+3. Methods
+4. Constructor
+
+FAQ: Can we define a variable in class?
+Ans : No
+
+FAQ: Can we define a function in class?
+Ans: No
+
+FAQ: Why we can't define variables and functions in class?
+Ans: Variables and function are immutable and class can
+         contain only mutable members.
+
+- TypeScript class can contain static members and non-static.
+- JavaScript class can contain only non-static.
+
+What is difference between static and non-static?
+- Static and Non-Static refer to memory.
+- Static is continous memory.
+- Non-static is discreet memory.
+- Static occupies more memory.
+- Static is not safe.
+
+When to use static?
+- When you need continous operations.
+
+When to use non-static?
+- When you need discreet operations.
+
+Ex:
+class Demo
+{
+    static s = 0;
+    n = 0;
+    constructor(){
+        Demo.s = Demo.s + 1;
+        this.n = this.n + 1;
+    }
+    Print(){
+        console.log(`S=${Demo.s} N=${this.n}`);
+    }
+}
+let obj1 = new Demo();
+obj1.Print();
+let obj2 = new Demo();
+obj2.Print();
+let obj3 = new Demo();
+obj3.Print();
+
+
+- TypeScript class allows access modifiers for members.
+
+	a) public
+	b) private
+	c) protected
+
+
+- public member is accessible from any location and reference.
+- private member is accessible only within the class.
+- protected members is accessible only in with in the derived class, using derived class object.
+
+
+- public member is accessible within the class 
+- public member is accessible outside the class by using base or derived class object.
+
+- private member is accessible within the class.
+
+- protected member is accessible within the class.
+- It is accessible outside class but only within the derived class by using derived class object only.
+
+Note: The default access modifier for class member is public.
+
+Ex:
+class Demo
+{
+    public Name:string;
+    private Price:number;
+    protected Stock:boolean;
+    Print(){
+        console.log(`Name=${this.Name}\nPrice=${this.Price}\nStock=${this.Stock}`);
+    }
+}
+class Derived extends Demo
+{
+    Print(){
+        let obj = new Derived();
+        obj.Name="";
+        obj.Stock=true;   
+    }
+}
+let obj = new Demo();
+obj.Name = "TV";
+let obj1 = new Derived();
+obj1.Name = "";
+
+- Contracts for a class
+- The rules for designing a class are defined by using contract.
+- Class implements a contract.
+
+Ex:
+interface IProduct
+{
+    Name:string;
+    Price:number;
+    Stock:boolean;
+    Print():void;
+}
+interface ICategory 
+{
+    CategoryName:string;
+}
+class Product implements IProduct, ICategory
+{
+     public Name: string;
+     public Price: number;
+     public Stock: boolean;
+     public CategoryName: string;
+     public Print(): void {
+         console.log(`Name=${this.Name}\nPrice=${this.Price}\nStock=${this.Stock}\nCategory=${this.CategoryName}`);
+     }
+}
+let tv = new Product;
+tv.Name = "Samsung TV";
+tv.Price = 45000.55;
+tv.Stock = true;
+tv.CategoryName = "Electronics";
+tv.Print();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
